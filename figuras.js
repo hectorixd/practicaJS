@@ -56,7 +56,8 @@ console.groupEnd();
 
 
 // AQUÍ COMENZAMOS A INTERACTUAR CON EL HTML
-// Input cuadrado
+// CUADRADO
+// Input perímetro
 function calcularPerimetroCuadrado() {
     const input = document.getElementById("InputCuadrado");
     const value = input.value;
@@ -71,3 +72,29 @@ function calcularAreaCuadrado() {
     const area = areaCuadrado(value);
     alert(area);
 };
+
+// TRIÁNGULO
+// Input altura
+function calcularAltura() {    
+    const inputA = document.getElementById("LadoA");    
+    const inputC = document.getElementById("Base");
+    const valueA = Number(inputA.value); 
+    console.log(valueA);       
+    const valueC = Number(inputC.value);
+    console.log(valueC);
+        
+    if (valueA > valueC) {
+        const altura = Math.sqrt((valueA ** 2) - (valueC ** 2));
+        console.log(altura);
+        return altura;
+    } else {
+        alert("La base de tu triángulo debe ser menor que los lados A y B");        
+    }
+}
+
+function calcularAreaTriangulo() {
+    const inputC = document.getElementById("Base");
+    const valueC = Number(inputC.value);
+    let area = areaTriangulo((valueC + valueC), calcularAltura());
+    alert(area);
+}
