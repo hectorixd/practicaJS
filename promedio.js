@@ -43,4 +43,30 @@ function calcularMediana(lista) {
     return mediana;
 };
 
+// CÁLCULO DE LA MODA
+// const lista = [3, 4, 6, 9, 3, 2, 2, 6, 9, 3, 7, 3, 9, 3, 3];
+
+function calcularModa(lista) {
+    const listaCount = {};
+    lista.map(
+        function (elemento) {
+            if (listaCount[elemento]) {
+                listaCount[elemento] +=1;
+            } else {
+                listaCount[elemento] = 1;
+            }
+        }
+    );
+    
+    // Convierte el objeto listaCount a un array y se ordena por las veces que se
+    // repite el número
+    const listaArray = Object.entries(listaCount).sort(
+        function (elementoA, elementoB) {
+            return elementoA[1] - elementoB[1];
+        }
+    );
+    
+    const moda = listaArray[listaArray.length - 1];    
+    console.log(moda);
+};
 
